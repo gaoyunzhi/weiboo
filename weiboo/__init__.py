@@ -71,11 +71,19 @@ def getResultDict(content):
 				result[url] = card
 	return result
 
-# result is approximately sorted by like
-def search(key, force_cache=False, sleep=0): 
+def getContent(key, force_cache=False, sleep=0): 
 	url = getSearchUrl(key)
 	content = cached_url.get(url, force_cache=force_cache, 
 		sleep = sleep)
-	content = yaml.load(content, Loader=yaml.FullLoader)
+	return yaml.load(content, Loader=yaml.FullLoader)
+
+# result is approximately sorted by like
+def search(key, force_cache=False, sleep=0): 
+	content = getContent(key, force_cache, sleep)
 	result = getResultDict(content)
 	return sortedResult(result, key)
+
+def searchUser(user, sleep=0):
+	content = getContent(key, force_cache=True, sleep=sleep)
+
+
