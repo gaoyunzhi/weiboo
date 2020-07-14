@@ -1,18 +1,15 @@
-# plain_db
+# weiboo
 
-Plain txt db
+Search Weibo for user / keyword.
 
 ## usage
 
 ```
-import plain_db
-counter = plain_db.load('counter')
-counter.update('abc', 2)
-counter.inc('abc', 1)
-counter.get('abc') # 3
+import weiboo
+weiboo.search('女权')
+weiboo.search('7418114597')
 ```
 
 ## how to install
 
-`pip3 install plain_db`# weiboo
-# weiboo
+`pip3 install weiboo`
