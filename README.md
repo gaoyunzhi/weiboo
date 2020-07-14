@@ -14,5 +14,5 @@ counter.get('abc') # 3
 
 ## how to install
 
-`pip3 install plain_db`# weibo_util
-# weibo_util
+`pip3 install plain_db`# weiboo
+# weiboo

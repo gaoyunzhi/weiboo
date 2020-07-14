@@ -4,14 +4,14 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="weibo_util",
+    name="weiboo",
     version="0.0.1",
     author="Yunzhi Gao",
     author_email="gaoyunzhi@gmail.com",
     description="Plain txt DB",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/gaoyunzhi/weibo_util",
+    url="https://github.com/gaoyunzhi/weiboo",
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
