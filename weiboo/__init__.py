@@ -52,10 +52,13 @@ def getHash(card):
 		return getTextHash(card.get('retweeted_status'))
 	return getTextHash(card)
 
-def sortedResult(result):
+def sortedResult(result, key = None):
 	to_sort = []
 	for url, card in result.items():
-		to_sort.append((getCount(card), (url, card)))
+		try:
+			to_sort.append((getCount(card), (url, card)))
+		except Exception as e:
+			print(url, key, card, str(e))
 	to_sort.sort(reverse=True)
 	return [item[1] for item in to_sort]
 
@@ -75,4 +78,4 @@ def search(key, force_cache=False, sleep=0):
 		sleep = sleep)
 	content = yaml.load(content, Loader=yaml.FullLoader)
 	result = getResultDict(content)
-	return sortedResult(result)
+	return sortedResult(result, key)
