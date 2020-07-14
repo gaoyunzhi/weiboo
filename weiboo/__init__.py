@@ -83,7 +83,20 @@ def search(key, force_cache=False, sleep=0):
 	result = getResultDict(content)
 	return sortedResult(result, key)
 
-def searchUser(user, sleep=0):
+def getPotentialUser(key, card):
+	screenname = card.get('user', {}).get('screen_name')
+	uid = str(card.get('user', {}).get('id'))
+	if key in [uid, screenname]:
+		return uid, screenname
+
+def yieldUser(key, content):
+	for card in content['data']['cards']:
+		yield getPotentialUser(key, card.get('mblog', {}))
+		for sub_card in card.get('card_group', []):
+			yield getPotentialUser(key, sub_card) 
+
+def searchUser(key, sleep=0):
 	content = getContent(key, force_cache=True, sleep=sleep)
-
-
+	for result in yieldUser(key, content):
+		if result:
+			return result
