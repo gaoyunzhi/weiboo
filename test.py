@@ -11,4 +11,4 @@ def test(key):
 
 if __name__=='__main__':
 	test('女权')
-	test('7418114597')
+	test('6520732164')

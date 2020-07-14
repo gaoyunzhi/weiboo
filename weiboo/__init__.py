@@ -26,9 +26,12 @@ def clearUrl(url):
 	return url.split('?')[0]
 
 def getSingleCount(card):
-	return (int(card['reposts_count']) + 
-			int(card['comments_count']) + 
-			int(card['attitudes_count']))
+	try:
+		return (int(card['reposts_count']) + 
+				int(card['comments_count']) + 
+				int(card['attitudes_count']))
+	except:
+		return 0 # if "该账号被投诉", we don't have those counts
 
 def getCount(card):
 	card = card.get('mblog', card)
@@ -55,10 +58,7 @@ def getHash(card):
 def sortedResult(result, key = None):
 	to_sort = []
 	for url, card in result.items():
-		try:
-			to_sort.append((getCount(card), (url, card)))
-		except Exception as e:
-			print(url, key, card, str(e))
+		to_sort.append((getCount(card), (url, card)))
 	to_sort.sort(reverse=True)
 	return [item[1] for item in to_sort]
 
