@@ -20,6 +20,7 @@ setuptools.setup(
     ],
     install_requires=[
         'pyyaml',
+        'cached_url',
     ],
     python_requires='>=3.0',
 )
