@@ -2,7 +2,10 @@
 # -*- coding: utf-8 -*-
 
 import weiboo
-counter = weiboo.load('counter')
-# counter.update('abc', 2)
-# counter.inc('abc', 1)
-print(counter.get('abc')) # 3
+
+def test(key):
+	print(weiboo.search(key))
+
+if __name__=='__main__':
+	test('女权')
+	test('7418114597')
