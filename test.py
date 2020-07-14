@@ -4,8 +4,8 @@
 import weiboo
 
 def test(key):
-	for url, card in weiboo.search(key).items():
-		print(url, weiboo.getHash(card))
+	for url, card in weiboo.search(key):
+		print(url, weiboo.getCount(card))
 	with open('tmp.txt', 'w') as f:
 		f.write(str(weiboo.search(key)))
 
