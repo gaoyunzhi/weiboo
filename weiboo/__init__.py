@@ -86,7 +86,7 @@ def search(key, force_cache=False, sleep=0):
 def getPotentialUser(key, card):
 	screenname = card.get('user', {}).get('screen_name')
 	uid = str(card.get('user', {}).get('id'))
-	if key in [uid, screenname]:
+	if key in [uid, screenname] and len(uid) > 3:
 		return uid, screenname
 
 def yieldUser(key, content):
