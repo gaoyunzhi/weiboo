@@ -8,7 +8,7 @@ setuptools.setup(
     version="0.0.6",
     author="Yunzhi Gao",
     author_email="gaoyunzhi@gmail.com",
-    description="Plain txt DB",
+    description="Weibo util",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/gaoyunzhi/weiboo",
